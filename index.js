@@ -5,8 +5,8 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let app = express().use(bodyParser.json());
 
-app.listen(server_port,server_id_address, ()=>{
-	console.log('Server is running at ' + server_ip_address + " on " + server_port);
+app.listen(server_port,server_ip_address, ()=>{
+	console.log('Server is running at ' + server_ip_address + " on " + server_port	);
 })
 
 app.post('/chatbot', (req,res)=>{
@@ -38,5 +38,7 @@ app.get('/chatbot',(req,res)=>{
 		} else{
 			res.sendStatus(403);
 		}
+	} else{
+		res.sendStatus(404);
 	}
 });
