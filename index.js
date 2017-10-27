@@ -1,11 +1,12 @@
 'use strict';
-
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 let express = require('express');
 let bodyParser = require('body-parser');
 let app = express().use(bodyParser.json());
 
-app.listen(process.env.PORT || 1337, ()=>{
-	console.log('Server is running');
+app.listen(server_port,server_id_address, ()=>{
+	console.log('Server is running at ' + server_ip_address + " on " + server_port);
 })
 
 app.post('/chatbot', (req,res)=>{
